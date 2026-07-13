@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+//DriverFactory manages the browser lifecycle
 public final class DriverFactory {
 
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -48,7 +49,7 @@ public final class DriverFactory {
 
         if(driver.get() != null){
             driver.get().quit();
-            driver.remove();// call this becuase ThreadLocal still holds a reference to the old driver. Even though chrome is closed, the reference still exists Calling it cleans the current thread completely.
+            driver.remove();// call this because ThreadLocal still holds a reference to the old driver. Even though chrome is closed, the reference still exists Calling it cleans the current thread completely.
         }
 
     }

@@ -15,7 +15,7 @@ public class PropertyUtils {
 
     static{
         try(FileInputStream file = new FileInputStream(
-                FrameworkConstants.CONFIG_GILE_PATH)){
+                FrameworkConstants.CONFIG_FILE_PATH)){
 
             properties.load(file);
 

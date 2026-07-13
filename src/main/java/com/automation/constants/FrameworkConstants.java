@@ -6,7 +6,7 @@ public final class FrameworkConstants {
 
     }
 
-    public static final String CONFIG_GILE_PATH = "src/test/resources/config.properties";
+    public static final String CONFIG_FILE_PATH = "src/test/resources/config.properties";
     public static final String SCREENSHOT_PATH =
             "screenshots/";
 
