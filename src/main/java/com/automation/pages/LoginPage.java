@@ -18,13 +18,38 @@ public class LoginPage extends BasePage {
             By.cssSelector("h3[data-test='error']");
 
 
-    public InventoryPage login(String username, String password){
+    public void enterUserName(String username){
         type(userNameInput, username);
-        type(passwordInput, password);
+    }
 
+    public void enterPassword(String password){
+        type(passwordInput, password);
+    }
+
+    public void clickLoginBtn(){
         click(loginButton);
+    }
+
+    public String getErrorMessage() {
+        return getText(errorMessage);
+    }
+
+    public boolean isLoginPageDisplayed(){
+        return isDisplayed(userNameInput);
+    }
+
+    public InventoryPage login(String username, String password){
+//        type(userNameInput, username);
+//        type(passwordInput, password);
+//        click(loginButton);
+//        return new InventoryPage(driver);
+
+        enterUserName(username);
+        enterPassword(password);
+        clickLoginBtn();
 
         return new InventoryPage(driver);
+
     }
 
 }

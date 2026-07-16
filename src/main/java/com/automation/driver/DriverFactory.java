@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //DriverFactory manages the browser lifecycle
 public final class DriverFactory {
 
@@ -26,6 +29,19 @@ public final class DriverFactory {
             WebDriverManager.chromedriver().setup();
 
             ChromeOptions options = new ChromeOptions();
+
+            options.addArguments("--guest");
+
+            Map<String, Object> prefs = new HashMap<>();
+
+            prefs.put("credentials_enable_service", false);
+            prefs.put("profile.password_manager_enabled", false);
+
+            options.setExperimentalOption("prefs", prefs);
+
+            options.addArguments("--disable-notifications");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-save-password-bubble");
 
             if(headless){
                 options.addArguments("--headless=new");
