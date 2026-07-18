@@ -16,4 +16,43 @@ public class InventoryPage extends BasePage {
         return isDisplayed(pageTitle);
     }
 
+    //for pure inventory page
+    private final By inventoryList = By.className("inventory_list");
+
+    private final By shoppingCart = By.className("shopping_cart_link");
+
+    private final By shoppingCartBadge = By.className("shopping_cart_badge");
+
+    //addToCartButtonXpath
+    private final String addToCartButtonXpath =
+            "//div[@class='inventory_item_name ' and text()='%s']" +
+                    "/ancestor::div[@class='inventory_item']//button";
+
+    private By getProductActionButton(String productName) {
+        return By.xpath(String.format(addToCartButtonXpath, productName));
+    }
+
+    public void addProductToCart(String productName) {
+        click(getProductActionButton(productName));
+    }
+
+    public void removeProductFromCart(String productName){
+        click(getProductActionButton(productName));
+    }
+
+    public int getCartBadgeCount() {
+
+        if (!isElementPresent(shoppingCartBadge)) {
+            return 0;
+        }
+
+        return Integer.parseInt(getText(shoppingCartBadge));
+    }
+
+    public CartPage openCart(){
+        click(shoppingCart);
+
+        return new CartPage(driver);
+    }
+
 }

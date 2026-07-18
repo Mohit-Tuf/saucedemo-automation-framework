@@ -28,4 +28,19 @@ public final class TestData {
     public static final String LOCKED_USER_ERROR =
             "Epic sadface: Sorry, this user has been locked out.";
 
+    //Inventory Data
+    public static final String BACKPACK = "Sauce Labs Backpack";
+
+    public static final String BIKE_LIGHT = "Sauce Labs Bike Light";
+
+    public static final String FLEECE_JACKET = "Sauce Labs Fleece Jacket";
+
+
+    // Product Prices
+    public static final String BACKPACK_PRICE = "$29.99";
+
+    public static final String BIKE_LIGHT_PRICE = "$9.99";
+
+    public static final String FLEECE_JACKET_PRICE = "$49.99";
+
 }
