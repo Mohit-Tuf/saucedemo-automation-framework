@@ -43,4 +43,26 @@ public final class TestData {
 
     public static final String FLEECE_JACKET_PRICE = "$49.99";
 
+    //Checkout Page Data
+    public static final String FIRST_NAME = "Mohit";
+    public static final String LAST_NAME = "Singh";
+    public static final String POSTAL_CODE = "110001";
+
+    public static final String EMPTY_STRING = "";
+
+    //checkout overiview test data
+
+    public static final String PAYMENT_INFORMATION =
+            "SauceCard #31337";
+
+    public static final String SHIPPING_INFORMATION =
+            "Free Pony Express Delivery!";
+
+    //complet finish test data
+    public static final String COMPLETE_HEADER =
+            "Thank you for your order!";
+
+    public static final String COMPLETE_MESSAGE =
+            "Your order has been dispatched, and will arrive just as fast as the pony can get there!";
+
 }
