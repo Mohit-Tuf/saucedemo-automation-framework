@@ -2,31 +2,45 @@ package com.automation.tests;
 
 import com.automation.base.BaseTest;
 import com.automation.constants.TestData;
+import com.automation.dataproviders.LoginDataProvider;
 import com.automation.driver.DriverFactory;
 import com.automation.pages.InventoryPage;
 import com.automation.pages.LoginPage;
 import com.automation.pages.components.NavigationMenu;
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    public void verifyValidLogin(){
+//    @Test
+//    public void verifyValidLogin(){
+//
+//        LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+//
+////        InventoryPage inventoryPage = loginPage.login("standard_user",
+////                "secret_sauce");
+//        InventoryPage inventoryPage = loginPage.login(TestData.STANDARD_USER,
+//                TestData.PASSWORD);
+//
+//        Assert.assertTrue(inventoryPage.isInventoryPageDisplayed(),
+//                "Login Failed. Inventory page is not displayed.");
+//
+//
+//    }
+
+    @Test(dataProvider = "validLoginData", dataProviderClass = LoginDataProvider.class)
+    public void verifyValidLogin(String username, String password){
 
         LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 
-//        InventoryPage inventoryPage = loginPage.login("standard_user",
-//                "secret_sauce");
-        InventoryPage inventoryPage = loginPage.login(TestData.STANDARD_USER,
-                TestData.PASSWORD);
+        InventoryPage inventoryPage = loginPage.login(username,password);
 
         Assert.assertTrue(inventoryPage.isInventoryPageDisplayed(),
-                "Login Failed. Inventory page is not displayed.");
-
+        "Login Failed. Inventory page is not displayed.");
 
     }
 

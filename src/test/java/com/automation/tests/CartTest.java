@@ -13,22 +13,22 @@ import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-    private CartPage cartPage;
-
-    @BeforeMethod
-    public void navigateToCart() {
-
-        LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
-
-        InventoryPage inventoryPage = loginPage.login(
-                TestData.STANDARD_USER,
-                TestData.PASSWORD
-        );
-
-        inventoryPage.addProductToCart(TestData.BACKPACK);
-
-        cartPage = inventoryPage.openCart();
-    }
+//    private CartPage cartPage;
+//
+//    @BeforeMethod
+//    public void navigateToCart() {
+//
+//        LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+//
+//        InventoryPage inventoryPage = loginPage.login(
+//                TestData.STANDARD_USER,
+//                TestData.PASSWORD
+//        );
+//
+//        inventoryPage.addProductToCart(TestData.BACKPACK);
+//
+//        cartPage = inventoryPage.openCart();
+//    }
 
     @Test(description = "Verify user can view added product in cart")
     public void verifyAddedProductIsDisplayedInCart() {

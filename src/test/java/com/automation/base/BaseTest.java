@@ -1,10 +1,16 @@
 package com.automation.base;
 import com.automation.driver.DriverFactory;
+import com.automation.listeners.RetryListener;
+import com.automation.listeners.TestListener;
 import com.automation.utils.LoggerUtils;
 import com.automation.utils.PropertyUtils;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+
+
+@Listeners(TestListener.class)
 public class BaseTest {
 
    private final static Logger logger = LoggerUtils.getLogger(BaseTest.class);
